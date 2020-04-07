@@ -1,0 +1,14 @@
+from decimal import *
+print('Enter the number of decimal points for "PI" number')
+user_number = int(input())
+limit = 50 
+pi = 0
+getcontext().prec = user_number +1  # Set the number of decimals via Decimals module
+
+if user_number < limit:
+    for i in range(1,10000000,4): # Infinite Series Formula
+        pi = pi + 4/(i)
+        pi = pi - 4/(i+2)
+        
+pi = Decimal(pi) # Convert to Decimal class
+print(round(pi,user_number))
